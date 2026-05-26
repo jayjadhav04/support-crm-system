@@ -249,6 +249,50 @@ Dashboard updates in real-time
 
 ---
 
+# 📸 Screenshots
+
+## Customer Portal
+
+![Customer Portal](assets/customer-portal.png)
+
+---
+
+## Ticket Submission
+
+![Ticket Submission](assets/ticket-submission.png)
+
+---
+
+## Success Notification
+
+![Success Toast](assets/success-toast.png)
+
+---
+
+## Admin Dashboard
+
+![Admin Dashboard](assets/admin-dashboard.png)
+
+---
+
+## Ticket Details Modal
+
+![Ticket Modal](assets/ticket-modal.png)
+
+---
+
+## Updated Ticket Workflow
+
+![Updated Dashboard](assets/updated-dashboard.png)
+
+---
+
+## Swagger API Documentation
+
+![Swagger Docs](assets/swagger-docs.png)
+
+---
+
 # 🎯 Future Improvements
 
 - Authentication System
