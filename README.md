@@ -2,31 +2,37 @@
 
 A full-stack Customer Support CRM system built using FastAPI, SQLite, HTML, Tailwind CSS, and JavaScript.
 
-This application allows customers to submit support tickets while enabling admins to manage complaints through a professional dashboard.
+This application allows customers to submit support tickets while enabling admins to manage complaints through a modern dashboard interface.
 
 ---
 
-# Features
+# 🚀 Live Demo
 
-## Customer Portal
-- Create support tickets
+🔗 https://support-crm-system-production.up.railway.app/
+
+---
+
+# 📌 Features
+
+## 👨‍💻 Customer Portal
+- Submit support tickets
 - Generate unique ticket IDs
 - Responsive UI
 - Real-time toast notifications
 
-## Admin Dashboard
+## 🛠️ Admin Dashboard
 - View all tickets
 - Search tickets
 - Filter tickets by status
 - Update ticket status
-- Ticket details modal popup
+- Ticket details popup modal
 - Dashboard analytics cards
 - Real-time updates
-- Modern responsive UI
+- Professional responsive UI
 
 ---
 
-# Tech Stack
+# 🧠 Tech Stack
 
 ## Backend
 - FastAPI
@@ -38,9 +44,12 @@ This application allows customers to submit support tickets while enabling admin
 - Tailwind CSS
 - JavaScript
 
+## Deployment
+- Railway.app
+
 ---
 
-# Project Structure
+# 📂 Project Structure
 
 ```text
 support-crm/
@@ -67,85 +76,12 @@ support-crm/
 
 ---
 
-# API Endpoints
+# ⚙️ Installation & Setup
 
-## Create Ticket
-
-### Endpoint
-```http
-POST /api/tickets
-```
-
-### Request Body
-```json
-{
-  "customer_name": "John",
-  "customer_email": "john@gmail.com",
-  "subject": "Payment Issue",
-  "description": "Money deducted but payment failed"
-}
-```
-
----
-
-## Get All Tickets
-
-### Endpoint
-```http
-GET /api/tickets
-```
-
-### Optional Query Parameters
-- status
-- search
-
-### Examples
-```http
-GET /api/tickets?status=Open
-```
-
-```http
-GET /api/tickets?search=Payment
-```
-
----
-
-## Get Single Ticket
-
-### Endpoint
-```http
-GET /api/tickets/{ticket_id}
-```
-
-### Example
-```http
-GET /api/tickets/TKT-1234
-```
-
----
-
-## Update Ticket Status
-
-### Endpoint
-```http
-PUT /api/tickets/{ticket_id}
-```
-
-### Request Body
-```json
-{
-  "status": "Closed"
-}
-```
-
----
-
-# Installation & Setup
-
-## Step 1 - Clone Repository
+## 1️⃣ Clone Repository
 
 ```bash
-git clone https://github.com/your-username/support-crm-system.git
+git clone https://github.com/jayjadhav04/support-crm-system.git
 ```
 
 ```bash
@@ -154,7 +90,7 @@ cd support-crm-system
 
 ---
 
-## Step 2 - Create Virtual Environment
+## 2️⃣ Create Virtual Environment
 
 ```bash
 python -m venv crm_env
@@ -162,21 +98,21 @@ python -m venv crm_env
 
 ---
 
-## Step 3 - Activate Virtual Environment
+## 3️⃣ Activate Virtual Environment
 
 ### Windows
 ```bash
 crm_env\Scripts\activate
 ```
 
-### Mac/Linux
+### Linux / Mac
 ```bash
 source crm_env/bin/activate
 ```
 
 ---
 
-## Step 4 - Install Dependencies
+## 4️⃣ Install Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -184,7 +120,7 @@ pip install -r requirements.txt
 
 ---
 
-## Step 5 - Run Server
+## 5️⃣ Run Server
 
 ```bash
 uvicorn main:app --reload
@@ -192,7 +128,7 @@ uvicorn main:app --reload
 
 ---
 
-# Open In Browser
+# 🌐 Open In Browser
 
 ## Customer Portal
 ```text
@@ -211,7 +147,80 @@ http://127.0.0.1:8000/docs
 
 ---
 
-# Dashboard Workflow
+# 📡 API Endpoints
+
+## ➕ Create Ticket
+
+```http
+POST /api/tickets
+```
+
+### Request Body
+
+```json
+{
+  "customer_name": "John",
+  "customer_email": "john@gmail.com",
+  "subject": "Payment Issue",
+  "description": "Money deducted but payment failed"
+}
+```
+
+---
+
+## 📋 Get All Tickets
+
+```http
+GET /api/tickets
+```
+
+### Optional Query Parameters
+- status
+- search
+
+### Examples
+
+```http
+GET /api/tickets?status=Open
+```
+
+```http
+GET /api/tickets?search=Payment
+```
+
+---
+
+## 🔍 Get Single Ticket
+
+```http
+GET /api/tickets/{ticket_id}
+```
+
+### Example
+
+```http
+GET /api/tickets/TKT-1234
+```
+
+---
+
+## ✏️ Update Ticket Status
+
+```http
+PUT /api/tickets/{ticket_id}
+```
+
+### Request Body
+
+```json
+{
+  "status": "Closed"
+}
+```
+
+---
+
+# 🔄 Workflow
 
 ```text
 Customer submits complaint
@@ -227,7 +236,7 @@ Dashboard updates in real-time
 
 ---
 
-# Dashboard Features
+# 📊 Dashboard Features
 
 - Total Tickets Card
 - Open Tickets Card
@@ -240,7 +249,7 @@ Dashboard updates in real-time
 
 ---
 
-# Future Improvements
+# 🎯 Future Improvements
 
 - Authentication System
 - Role-Based Access Control
@@ -251,21 +260,22 @@ Dashboard updates in real-time
 
 ---
 
-# Deployment
+# 🚀 Deployment
 
-This project can be deployed easily using:
+This project is deployed on Railway.app.
 
-- Railway
-- Render
-- Vercel
-- Docker
+### Deployment Platform
+- Railway.app
 
-Recommended:
-- FastAPI → Railway.app
+### Start Command
+
+```bash
+uvicorn main:app --host 0.0.0.0 --port $PORT
+```
 
 ---
 
-# Author
+# 👨‍💻 Author
 
 ## Jay Jadhav
 
@@ -273,5 +283,8 @@ Computer Science Engineering (AI/ML)
 
 ### GitHub
 https://github.com/jayjadhav04
+
+### LinkedIn
+https://www.linkedin.com/in/jayjadhav04
 
 ---
