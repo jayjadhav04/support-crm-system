@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Support Portal</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-6">
+
+    <div class="bg-white w-full max-w-2xl rounded-2xl shadow-xl p-8">
+
+        <h1 class="text-4xl font-bold text-center mb-4">
+            Customer Support Portal
+        </h1>
+
+        <p class="text-center text-gray-600 mb-8">
+            Submit your issue and our support team will resolve it shortly.
+        </p>
+
+        <!-- Ticket Form -->
+        <form id="ticketForm" class="space-y-5">
+
+            <div>
+                <label class="block mb-2 font-medium">
+                    Customer Name
+                </label>
+
+                <input
+                    type="text"
+                    id="customer_name"
+                    placeholder="Enter your name"
+                    class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required
+                >
+            </div>
+
+            <div>
+                <label class="block mb-2 font-medium">
+                    Customer Email
+                </label>
+
+                <input
+                    type="email"
+                    id="customer_email"
+                    placeholder="Enter your email"
+                    class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required
+                >
+            </div>
+
+            <div>
+                <label class="block mb-2 font-medium">
+                    Subject
+                </label>
+
+                <input
+                    type="text"
+                    id="subject"
+                    placeholder="Issue subject"
+                    class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required
+                >
+            </div>
+
+            <div>
+                <label class="block mb-2 font-medium">
+                    Issue Description
+                </label>
+
+                <textarea
+                    id="description"
+                    rows="5"
+                    placeholder="Describe your issue clearly..."
+                    class="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required
+                ></textarea>
+            </div>
+
+            <button
+                type="submit"
+                id="submitBtn"
+                class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition duration-200 font-semibold"
+            >
+                Submit Ticket
+            </button>
+
+        </form>
+
+        <!-- Dashboard Link -->
+        <div class="text-center mt-8">
+
+            <a
+                href="/dashboard"
+                class="text-blue-600 hover:underline font-medium"
+            >
+                Go To Admin Dashboard
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- Toast Notification -->
+    <div
+        id="toast"
+        class="fixed top-5 right-5 hidden bg-green-600 text-white px-6 py-4 rounded-lg shadow-lg z-50"
+    >
+    </div>
+
+
+<script>
+
+function showToast(message) {
+
+    const toast = document.getElementById("toast");
+
+    toast.innerText = message;
+
+    toast.classList.remove("hidden");
+
+    setTimeout(() => {
+
+        toast.classList.add("hidden");
+
+    }, 3000);
+}
+
+
+const ticketForm = document.getElementById("ticketForm");
+
+ticketForm.addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+    const submitBtn = document.getElementById("submitBtn");
+
+    submitBtn.innerText = "Creating Ticket...";
+    submitBtn.disabled = true;
+
+    const customer_name =
+        document.getElementById("customer_name").value;
+
+    const customer_email =
+        document.getElementById("customer_email").value;
+
+    const subject =
+        document.getElementById("subject").value;
+
+    const description =
+        document.getElementById("description").value;
+
+    try {
+
+        const response = await fetch("/api/tickets", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                customer_name,
+                customer_email,
+                subject,
+                description
+            })
+
+        });
+
+        const data = await response.json();
+
+        showToast(
+            `Ticket Created Successfully! ID: ${data.ticket_id}`
+        );
+
+        ticketForm.reset();
+
+    } catch(error) {
+
+        showToast("Something went wrong!");
+
+    }
+
+    submitBtn.innerText = "Submit Ticket";
+    submitBtn.disabled = false;
+
+});
+
+</script>
+
+</body>
+</html>
