@@ -2,27 +2,27 @@
 
 A full-stack Customer Support CRM system built using FastAPI, SQLite, HTML, Tailwind CSS, and JavaScript.
 
-This project allows customers to submit support tickets and enables admins to manage complaints through a professional dashboard interface.
+This application allows customers to submit support tickets while enabling admins to manage complaints through a professional dashboard.
 
 ---
 
 # Features
 
 ## Customer Portal
-- Submit support tickets
+- Create support tickets
 - Generate unique ticket IDs
 - Responsive UI
-- Success toast notifications
+- Real-time toast notifications
 
 ## Admin Dashboard
 - View all tickets
 - Search tickets
 - Filter tickets by status
 - Update ticket status
-- Ticket detail modal popup
+- Ticket details modal popup
 - Dashboard analytics cards
 - Real-time updates
-- Professional UI design
+- Modern responsive UI
 
 ---
 
@@ -42,6 +42,7 @@ This project allows customers to submit support tickets and enables admins to ma
 
 # Project Structure
 
+```text
 support-crm/
 │
 ├── crm_env/
@@ -62,52 +63,80 @@ support-crm/
 ├── requirements.txt
 ├── .gitignore
 └── README.md
+```
 
 ---
 
 # API Endpoints
 
 ## Create Ticket
-POST /api/tickets
 
-Request Body:
+### Endpoint
+```http
+POST /api/tickets
+```
+
+### Request Body
+```json
 {
   "customer_name": "John",
   "customer_email": "john@gmail.com",
   "subject": "Payment Issue",
   "description": "Money deducted but payment failed"
 }
+```
 
 ---
 
 ## Get All Tickets
-GET /api/tickets
 
-Optional Query Params:
+### Endpoint
+```http
+GET /api/tickets
+```
+
+### Optional Query Parameters
 - status
 - search
 
-Examples:
+### Examples
+```http
 GET /api/tickets?status=Open
+```
+
+```http
 GET /api/tickets?search=Payment
+```
 
 ---
 
 ## Get Single Ticket
-GET /api/tickets/{ticket_id}
 
-Example:
+### Endpoint
+```http
+GET /api/tickets/{ticket_id}
+```
+
+### Example
+```http
 GET /api/tickets/TKT-1234
+```
 
 ---
 
 ## Update Ticket Status
-PUT /api/tickets/{ticket_id}
 
-Request Body:
+### Endpoint
+```http
+PUT /api/tickets/{ticket_id}
+```
+
+### Request Body
+```json
 {
   "status": "Closed"
 }
+```
 
 ---
 
@@ -115,80 +144,134 @@ Request Body:
 
 ## Step 1 - Clone Repository
 
+```bash
 git clone https://github.com/your-username/support-crm-system.git
+```
 
+```bash
 cd support-crm-system
+```
 
 ---
 
 ## Step 2 - Create Virtual Environment
 
+```bash
 python -m venv crm_env
+```
 
 ---
 
 ## Step 3 - Activate Virtual Environment
 
 ### Windows
+```bash
 crm_env\Scripts\activate
+```
+
+### Mac/Linux
+```bash
+source crm_env/bin/activate
+```
 
 ---
 
-## Step 4 - Install Requirements
+## Step 4 - Install Dependencies
 
+```bash
 pip install -r requirements.txt
+```
 
 ---
 
 ## Step 5 - Run Server
 
+```bash
 uvicorn main:app --reload
+```
 
 ---
 
 # Open In Browser
 
 ## Customer Portal
+```text
 http://127.0.0.1:8000
+```
 
 ## Admin Dashboard
+```text
 http://127.0.0.1:8000/dashboard
+```
 
-## Swagger API Docs
+## Swagger API Documentation
+```text
 http://127.0.0.1:8000/docs
+```
 
 ---
 
 # Dashboard Workflow
 
+```text
 Customer submits complaint
-↓
+        ↓
 Ticket stored in SQLite database
-↓
+        ↓
 Admin opens dashboard
-↓
+        ↓
 Admin manages ticket status
-↓
+        ↓
 Dashboard updates in real-time
+```
+
+---
+
+# Dashboard Features
+
+- Total Tickets Card
+- Open Tickets Card
+- In Progress Tickets Card
+- Closed Tickets Card
+- Search Functionality
+- Status Filtering
+- Ticket Detail Modal
+- Real-Time Status Updates
 
 ---
 
 # Future Improvements
 
 - Authentication System
-- Role-Based Access
+- Role-Based Access Control
 - Email Notifications
 - File Attachments
 - Ticket Priority Levels
-- AI-based Ticket Categorization
+- AI-Based Ticket Categorization
+
+---
+
+# Deployment
+
+This project can be deployed easily using:
+
+- Railway
+- Render
+- Vercel
+- Docker
+
+Recommended:
+- FastAPI → Railway.app
 
 ---
 
 # Author
 
-Jay Jadhav
+## Jay Jadhav
 
 Computer Science Engineering (AI/ML)
 
-GitHub:
+### GitHub
 https://github.com/jayjadhav04
+
+---
